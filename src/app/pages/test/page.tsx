@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { ContextApiCall } from '../../api/ContextApiCall'
-import { User } from './dto/User';
+import { User } from './dto/user';
 import { AxiosResponse } from 'axios';
 
 
@@ -13,10 +13,10 @@ export default function Test() {
 const [users , setUsers] = useState<User[]>([])
 
 useEffect(()=>{
-apiService.get<AxiosResponse<User[]>>("users")
+apiService.get<User[]>("users" , false)
 .then(t=>{
   console.log(t);
-  setUsers(t.data)
+  setUsers(t)
 })
 
 },[])
@@ -24,7 +24,7 @@ apiService.get<AxiosResponse<User[]>>("users")
     <main>
       <p>this is test case for :  api axios </p>
       <div>
-      {users.length > 0 && users.map((row)=><p>{row.name}</p>)}
+      {users.length > 0 && users.map((row)=><p key={row.id}>{row.name}</p>)}
       </div>
     </main>
   )

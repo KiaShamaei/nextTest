@@ -6,9 +6,9 @@
  * rest call such as fetch axios xhr ...
  */
 export interface IApiCall {
-    getData<T>(data:string): Promise<T>;
-    postData<T,E,R>(data: T , endpoint: E): Promise< R>;
-    putData<T,E,R>(data: T , endpoint: E): Promise< R>;
-    deleteData<T,R>(data: T): Promise< R>;
-    tryLogin<T,R>(data: T): Promise< R>;
+    getData<T>(data:string , auth : boolean): Promise<T>;
+    postData<T,E,R>(data: T , endpoint: E ,auth : boolean): Promise< R>;
+    putData<T,E,R>(data: T , endpoint: E, auth : boolean): Promise< R>;
+    deleteData<T,R>(data: T,auth : boolean): Promise< R>;
+    tryLogin<T>(data: T,auth : boolean) : void;
 }
