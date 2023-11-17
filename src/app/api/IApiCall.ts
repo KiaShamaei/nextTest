@@ -10,5 +10,5 @@ export interface IApiCall {
     postData<T,E,R>(data: T , endpoint: E ,auth : boolean): Promise< R>;
     putData<T,E,R>(data: T , endpoint: E, auth : boolean): Promise< R>;
     deleteData<T,R>(data: T,auth : boolean): Promise< R>;
-    tryLogin<T>(data: T,auth : boolean) : void;
+    tryLogin<T>(data: T) : void;
 }

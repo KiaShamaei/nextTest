@@ -29,7 +29,7 @@ export class AxoisApiCall implements IApiCall{
          });
        
     async getData<T>(endpoint: string , auth : boolean): Promise<T> {
-        if (auth){
+        if (auth && this.token.length == 0){
             const dataAuthLogin = {username : this.user , password : this.password }
             this.tryLogin(dataAuthLogin)
         }
